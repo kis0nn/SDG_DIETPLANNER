@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+  <title>Low Cost Diet Planner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #a9e3f7, #f4fafa, #c3e7f9, #8bc9e1);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      color: #333;
+    }
+    header {
+      background-image: url('https://sdgs.un.org/sites/default/files/2020-02/SDGs-Tile-Icons.png');
+      background-position: center center;
+      padding: 80px 20px 40px 20px;
+      color: #004d40;
+      text-shadow: 2px 2px 4px #a9e3f7;
+      text-align: center;
+      font-weight: bold;
+      font-size:40px;
+    }
+    header h1 {
+      background: rgba(255, 255, 255, 0.75);
+      display: inline-block;
+      padding: 10px 40px;
+      border-radius: 10px;
+      margin: 0;
+    }
+    nav {
+      background-color: #004d40;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      text-align: center;
+    }
+    nav a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size:16.8px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #26a69a;
+      color: white;
+    }
+    section {
+      flex: 1;
+      padding: 20px 40px 40px 40px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      text-align: left;
+      color: #2f4f4f;
+    }
+    section h2 {
+      color: #00796b;
+      margin-bottom: 15px;
+      font-size: 32px;
+      font-weight: 700;
+      border-bottom: 3px solid #26a69a;
+      padding-bottom: 8px;
+    }
+    section p {
+      font-size: 17.6px;
+      line-height: 1.6;
+      margin-bottom: 20.8px;
+    }
+    .btn-plan {
+      display: inline-block;
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      font-weight: 700;
+      border-radius: 40px;
+      padding: 15px 50px;
+      font-size:20.8px;
+      border: none;
+      box-shadow: 0 8px 15px rgba(0, 121, 107, 0.4);
+      transition: transform 0.25s ease;
+      margin: 30px auto 50px auto;
+      display: block;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-plan:hover {
+      box-shadow: 0 12px 20px rgba(0, 121, 107, 0.6);
+      outline: none;
+      text-decoration: none;
+      color: white;
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Low Cost Diet Planner</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="dietplanner.html">Diet Planner</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section id="planner">
+    <h2>Diet Planner</h2>
+    <p>Plan your meals based on your budget and meal type to find healthy, affordable options.</p>
+
+    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <label for="budget" style="font-weight:600;">Enter your budget (₹):</label><br/>
+      <input type="number" id="budget" placeholder="Enter amount" style="padding:10px; width:80%; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem;" />
+
+      <br/>
+      <label for="mealType" style="font-weight:600;">Select meal type:</label><br/>
+      <select id="mealType" style="padding:10px; width:80%; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem;">
+        <option value="">--Select--</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+      </select>
+
+      <br/>
+      <button class="btn-plan" onclick="generatePlan()">Get Meal Plan</button>
+
+      <div id="resultBox" style="margin-top:30px; background:#f4fafa; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:none;">
+        <h3 style="color:#00796b;">Suggested Meals</h3>
+        <ul id="mealList" style="text-align:left; list-style:square; padding-left:25px;"></ul>
+        <p id="totalCost" style="font-weight:700; color:#004d40; margin-top:15px;"></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const meals = {
+      breakfast: [
+        { name: "Oatmeal with Banana", cost: 60 },
+        { name: "Pohe with tea", cost: 45 },
+        { name: "Egg Sandwich", cost: 70 },
+        { name: "Upma with Coconut Chutney", cost: 55 }
+      ],
+      lunch: [
+        { name: "Dal Rice with Salad", cost: 85 },
+        { name: "Vegetable Pulao", cost: 80 },
+        { name: "Chapati, Sabzi & Curd", cost: 100 },
+        { name: "Khichdi with Pickle", cost: 75 }
+      ],
+      dinner: [
+        { name: "Mixed Veg Curry with Rice", cost: 95 },
+        { name: "Roti with Paneer Bhurji", cost: 115 },
+        { name: "Vegetable Soup & Toast", cost: 80 },
+        { name: "Lentil Stew & Brown Rice", cost: 90 }
+      ]
+    };
+
+    function generatePlan() {
+      const budget = Number(document.getElementById("budget").value);
+      const mealType = document.getElementById("mealType").value;
+      const resultBox = document.getElementById("resultBox");
+      const mealList = document.getElementById("mealList");
+      const totalCostElem = document.getElementById("totalCost");
+
+      mealList.innerHTML = "";
+      totalCostElem.textContent = "";
+      resultBox.style.display = "none";
+
+      if (!budget || !mealType) {
+        alert("Please enter a valid budget and select a meal type.");
+        return;
+      }
+
+      const mealOptions = [];
+      for (let i = 0; i < meals[mealType].length; i++) {
+        if (meals[mealType][i].cost <= budget) {
+          mealOptions.push(meals[mealType][i]);
+        }
+      }
+
+      if (mealOptions.length === 0) {
+        resultBox.style.display = "block";
+        mealList.innerHTML = "<li>No options available within this budget.</li>";
+        return;
+      }
+
+      let totalCost = 0;
+      for (let i = 0; i < mealOptions.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = mealOptions[i].name + " - ₹" + mealOptions[i].cost;
+        mealList.appendChild(li);
+        totalCost += mealOptions[i].cost;
+      }
+
+      totalCostElem.textContent = "Estimated total cost: ₹" + totalCost;
+      resultBox.style.display = "block";
+    }
+  </script>
+</body>
+</html>

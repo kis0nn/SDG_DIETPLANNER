@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<head>
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(
+        to bottom right,
+        #a9e3f7,
+        #f4fafa,
+        #c3e7f9,
+        #8bc9e1
+      );
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      color: #333;
+    }
+    header {
+      background-position: center center;
+      padding: 80px 20px 40px 20px;
+      color: #004d40;
+      text-shadow: 2px 2px 4px #a9e3f7;
+      text-align: center;
+      font-weight: bold;
+      font-size:40px;
+    }
+    header h1 {
+      background: rgba(255, 255, 255, 0.75);
+      display: inline-block;
+      padding: 10px 40px;
+      border-radius: 10px;
+      margin: 0;
+    }
+    nav {
+      background-color: #004d40;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      text-align: center;
+    }
+    nav a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size:16.8px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #26a69a;
+      color: white;
+    }
+    section {
+      flex: 1;
+      padding: 20px 40px 40px 40px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      text-align: left;
+      color: #2f4f4f;
+    }
+    section h2 {
+      color: #00796b;
+      margin-bottom: 15px;
+      font-size:32px;
+      font-weight: 700;
+      border-bottom: 3px solid #26a69a;
+      padding-bottom: 8px;
+    }
+    section p {
+      font-size: 17.6px;
+      line-height: 1.6;
+      margin-bottom: 20.8px;
+    }
+    .contact-form-container {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      border-radius: 10px;
+      background: #f8fcfd;
+      box-shadow: 0 2px 8px rgba(39,150,127,0.05);
+    }
+    .contact-form-container label {
+      display: block;
+      margin-bottom: 8px;
+      color: #27967F;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .contact-form-container input,
+    .contact-form-container textarea {
+      width: 100%;
+      padding: 12px 10px;
+      margin-bottom: 18px;
+      border: 1px solid #d7d7d7;
+      border-radius: 6px;
+      font-size: 15px;
+      background: #f8f8f8;
+      transition: border 0.2s;
+    }
+
+    .send-btn {
+      background-color: #27967F;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 22px;
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      margin: 0 auto;
+      margin-top: 8px;
+      box-shadow: 0 2px 4px rgba(39,150,127,0.19);
+      transition: background 0.2s;
+    }
+    .send-btn:hover {
+      background-color: #207967;
+    }
+    .success-message {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .success-message h3 {
+      color: #27967F;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .success-message p {
+      color: #444;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="dietplanner.html">Diet Planner</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="contact.html">Contact</a>
+  </nav>
+  <section>
+    <h2>We'd love to hear from you</h2>
+    <p>
+      If you have questions, suggestions, or want to collaborate on a sustainability project, please fill out the form below. Our team will get in touch with you soon.
+    </p>
+    <div class="contact-form-container">
+      <form id="contactForm">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Enter your full name" required>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <label for="message">Your Message</label>
+        <textarea id="message" rows="4" placeholder="Write your message..." required></textarea>
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
+      <div id="successMsg" class="success-message" style="display:none;">
+        <img src="https://c8.alamy.com/comp/2ABNAN7/green-check-mark-icon-in-a-circle-tick-symbol-in-green-color-2ABNAN7.jpg" alt="Tick mark" style="width:72px; margin-bottom:16px; display: block; margin: 0 auto;">
+        <h3>Thank you!</h3>
+        <p>Your submission has been sent.</p>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.getElementById('contactForm').onsubmit = function(event) {
+      event.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

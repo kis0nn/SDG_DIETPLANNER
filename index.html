@@ -1,0 +1,192 @@
+    <!DOCTYPE html>
+
+<head>
+  
+  <title>Low Cost Diet Planner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(
+        to bottom right,
+        #a9e3f7,
+        #f4fafa,
+        #c3e7f9,
+        #8bc9e1
+      );
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      color: #333;
+    }
+    header {
+      background-image: url('https://sdgs.un.org/sites/default/files/2020-02/SDGs-Tile-Icons.png');
+      background-position: center center;
+      padding: 80px 20px 40px 20px;
+      color: #004d40;
+      text-shadow: 2px 2px 4px #a9e3f7;
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.5em;
+      user-select: none;
+    }
+    header h1 {
+      background: rgba(255, 255, 255, 0.75);
+      display: inline-block;
+      padding: 10px 40px;
+      border-radius: 10px;
+      margin: 0;
+    }
+    nav {
+      background-color: #004d40;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      text-align: center;
+    }
+    nav a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16.8px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #26a69a;
+      color: white;
+    }
+    section {
+      flex: 1;
+      padding: 20px 40px 40px 40px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      text-align: left;
+      color: #2f4f4f;
+    }
+    section img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    section h2 {
+      color: #00796b;
+      margin-bottom: 15px;
+      font-size: 32px;
+      font-weight: 700;
+      border-bottom: 3px solid #26a69a;
+      padding-bottom: 8px;
+    }
+    section p {
+      font-size: 17.6px;
+      line-height: 1.6;
+      margin-bottom: 20.8px;
+    }
+    .btn-plan {
+      display: inline-block;
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      font-weight: 700;
+      border-radius: 40px;
+      padding: 15px 50px;
+      font-size: 20.8px;
+      border: none;
+      box-shadow: 0 8px 15px rgba(0, 121, 107, 0.4);
+      transition: transform 0.25s ease;
+      margin: 30px auto 50px auto;
+      display: block;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-plan:hover{
+      text-decoration: none;
+      color: white;
+    }
+    table {
+      width: 90%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 14px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      font-size: 17.6px;
+    }
+    th {
+      background: #00796b;
+      color: white;
+      font-weight: 700;
+    }
+    tr:nth-child(even) {
+      background: #f4fafa;
+    }
+    caption {
+      font-size:20.8px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Low Cost Diet Planner</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="dietplanner.html">Diet Planner</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section>
+    <img
+      src="https://www.adb.org/sites/default/files/photo-essays/adb-sdgs-individual-01.jpg"
+      alt="Hungry boy"
+    />
+    <h2>Zero Hunger</h2>
+    <p>
+      The Zero Hunger goal, part of the United Nations’ global agenda for sustainable development, focuses on ending hunger, achieving food security, improving nutrition, and promoting sustainable agriculture. Hunger remains one of the most critical challenges facing humanity, affecting millions of people worldwide. The aim is not only to ensure that everyone has enough food but also to provide access to safe, nutritious, and sufficient meals all year round.
+    </p>
+    <p>
+      Zero Hunger emphasizes improving agricultural productivity through better technology, affordable access to resources, and support for small-scale farmers. It highlights the importance of reducing food waste, protecting the environment, and creating resilient food systems that can withstand climate change. Children, pregnant women, and vulnerable communities are at the heart of this mission, as malnutrition affects their growth, development, and ability to learn or work effectively.
+    </p>
+  </section>
+
+  <a class="btn-plan" href="dietplanner.html">Start Planning</a>
+
+  <section>
+    <table>
+      <caption>World Hunger Index (2024) - Selected Countries</caption>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Hunger Index Score</th>
+          <th>Severity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Central African Republic</td><td>50.4</td><td>Extremely Alarming</td></tr>
+        <tr><td>Chad</td><td>46.3</td><td>Alarming</td></tr>
+        <tr><td>Madagascar</td><td>43.5</td><td>Alarming</td></tr>
+        <tr><td>Yemen</td><td>39.1</td><td>Alarming</td></tr>
+        <tr><td>India</td><td>27.4</td><td>Serious</td></tr>
+        <tr><td>Nigeria</td><td>28.7</td><td>Serious</td></tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
